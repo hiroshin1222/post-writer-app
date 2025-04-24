@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fontNotoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  // 必要に応じてフォントウェイトも指定できます（省略可）
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -23,9 +20,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        // ここで Noto Sans JP のクラス名を追加
+        className={cn(
+          "bg-background antialiased min-h-screen",
+          fontNotoSansJP.className
+        )}
       >
         {children}
       </body>
