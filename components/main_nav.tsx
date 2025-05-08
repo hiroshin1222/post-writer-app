@@ -10,12 +10,15 @@ import { cn } from "@/lib/utils";
 import MobileNav from "@/components/mobile-nav";
 import { useState } from "react";
 import { MenuIcon } from "lucide-react";
+
 interface MainNavProps {
     items: NavItem[];
     children?: React.ReactNode;
 }
+
 export default function MainNav({ items }: MainNavProps) {
-    const[showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
+    const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
+    
     return (
         <div className="flex items-center gap-6">
             <Link href={"/"} className="text-2xl font-bold hidden md:block">
@@ -23,15 +26,19 @@ export default function MainNav({ items }: MainNavProps) {
             </Link>
             <nav className="hidden md:flex items-center gap-6">
                 {items.map((item, index) => (
-                <Link href={item.href} key={index} className={cn(buttonVariants({variant: "link"}), "text-sm font-medium")}>
-                    {item.title}
-                </Link>
-            ))}
+                    <Link 
+                        href={item.href} 
+                        key={index} 
+                        className={cn(buttonVariants({variant: "link"}), "text-sm font-medium")}
+                    >
+                        {item.title}
+                    </Link>
+                ))}
             </nav>
             <button className="md:hidden" onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                <MenuIcon />
+                <MenuIcon className="h-6 w-6" />
             </button>
             {showMobileMenu && <MobileNav items={items} setShowMobileMenu={setShowMobileMenu} />}
         </div>
-    )
+    );
 }
