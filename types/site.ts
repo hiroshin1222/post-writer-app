@@ -3,6 +3,8 @@
 // もしくは型の補完を他のパッケージに提供する（ライブラリ開発）ためのものらしい
 // なのでファイル名を変更し、config/site.tsのimport文も変更した（/siteを追加）
 
+import { Icon } from "@/components/icon";
+
 export type NavItem = {
     title: string;
     href: string;
@@ -23,4 +25,25 @@ export type SiteConfig = {
 
 export type MarketingConfig = {
     mainNav: NavItem[];
+};
+
+export type SidebarNavItem = {
+    title: string;
+    disabled?: boolean;
+    external?: boolean;
+    icon?: keyof typeof Icon;
+} & (
+   | {
+        href: string;
+        items?: never;
+    }
+) & (
+   | {
+        href?: never;
+        items: NavItem[];
+    }
+)
+export type DashboardConfig = {
+    mainNav: NavItem[];
+    sidebarNav: SidebarNavItem[];
 };
