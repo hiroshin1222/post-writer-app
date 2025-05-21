@@ -6,6 +6,7 @@ import { db } from "./db";
 
 
 export const authOptions: NextAuthOptions = {
+    debug: true,
     providers: [
         GithubProvider({
             clientId: process.env.GITHUB_CLIENT_ID!,
@@ -25,6 +26,7 @@ export const authOptions: NextAuthOptions = {
     callbacks: {
        
         async session({ session, token }) {
+            console.log("session callback", session, token);
             if (token.sub) {
                 session.user.id = token.sub;
                 session.user.name = token.name;
