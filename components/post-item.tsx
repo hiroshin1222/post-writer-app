@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Post } from "@prisma/client";
+import { Post } from "@/generated/prisma";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import PostOperations from "./post-operations";

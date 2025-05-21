@@ -37,7 +37,6 @@ export type SidebarNavItem = {
         href: string;
         items?: never;
     }
-) & (
    | {
         href?: never;
         items: NavItem[];

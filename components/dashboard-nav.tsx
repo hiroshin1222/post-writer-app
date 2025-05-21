@@ -18,7 +18,7 @@ export default function DashboardNav({ items }: DashboardNavProps) {
     return (
         <nav className="flex flex-col gap-2">
             {items.map((item) => {
-                const IconComponent = Icon[item.icon || "arrowRight"];
+                const IconComponent = Icon[(item.icon || "arrowRight") as keyof typeof Icon];
                 return (
                     <DashboardNavItem 
                         key={item.title} 

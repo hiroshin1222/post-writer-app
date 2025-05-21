@@ -31,8 +31,7 @@ async function deletePost(postId: string) {
         return true;
     } catch (err) {
         toast.error("削除に失敗しました", {
-            description: "もう一度お試しください",
-            variant: "destructive"
+            description: "もう一度お試しください"
         });
     }
 }

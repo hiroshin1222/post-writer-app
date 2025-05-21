@@ -9,7 +9,7 @@ import Header from '@editorjs/header';
 import LinkTool from '@editorjs/link';
 import EditorjsList from '@editorjs/list';
 import Code from '@editorjs/code';
-import { Post } from "@prisma/client";
+import { Post } from "@/generated/prisma";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PostSchema, postPatchSchemaType } from "@/lib/validations/post";

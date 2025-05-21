@@ -2,8 +2,8 @@ import Editor from "@/components/editor";
 import { db } from "@/lib/db";
 import { getCurrentUser } from "@/lib/session";
 import { redirect } from "next/navigation";
-import { Post, User } from "@prisma/client";
-
+import { Post, User } from "@/generated/prisma";
+import { notFound } from "next/navigation";
 interface EditorProps {
     params: {
         postId: string;
