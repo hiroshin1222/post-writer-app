@@ -14,15 +14,16 @@ const prismaClientSingleton = () => {
     log: process.env.NODE_ENV === 'development' 
       ? ['query', 'error', 'warn'] 
       : ['error'],
+
     // サーバーレス環境向けの最適化
-    // 必要に応じてコメントを外してください
-    /*
     datasources: {
       db: {
         url: process.env.DATABASE_URL
       }
     },
-    */
+
+    
+    directUrl: process.env.DIRECT_URL
   });
 };
 
