@@ -18,8 +18,7 @@ const prismaClientSingleton = () => {
     // サーバーレス環境向けの最適化
     datasources: {
       db: {
-        url: process.env.DATABASE_URL,
-        directUrl: process.env.DIRECT_URL
+        url: process.env.DATABASE_URL
       }
     }
   });
